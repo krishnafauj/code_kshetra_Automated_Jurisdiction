@@ -8,7 +8,6 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
-import UserComplaintFOrm from "./components/Userpage/userComplaintForm";
 import AdvocateCivilComplaintFomr from "./components/AdvocatePage/AdvocateCivilComplaintForm"
 import LoginPage from "./components/Userpage/Loginpage";
 import PoliceLogin from "./components/PolicePage/PoliceLogin";
@@ -65,7 +64,7 @@ function App() {
                   <XYZ />
                 </Layout>
               </AuthMiddleware>
-            }
+            }=
           /> */}
         <Route path="/userlogin" element={
           <LoginPage />

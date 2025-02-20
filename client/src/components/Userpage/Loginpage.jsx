@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import LoginImg from "../../assets/77429.jpg"
 
 export default function LoginPage() {
   const [isSignup, setIsSignup] = useState(false);
@@ -43,56 +44,68 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-900">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative w-96 bg-white shadow-lg rounded-lg p-6"
-      >
-        <h2 className="text-2xl font-bold text-center text-gray-800">{isSignup ? "Sign Up" : "Login"}</h2>
-        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-gray-800"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-gray-800"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          {isSignup && (
+    <div className="w-screen flex h-screen">
+      {/* Left Side - Login Box */}
+      <div className="flex justify-left items-center w-1/3 p-10 bg-gray-900 ">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative w-96 bg-white shadow-lg rounded-lg p-10 ml-10"
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-800">{isSignup ? "Sign Up" : "Login"}</h2>
+          <form onSubmit={handleSubmit} className="mt-4 space-y-4">
             <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
+              type="email"
+              name="email"
+              placeholder="Email"
               required
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-gray-800"
-              value={formData.confirmPassword}
+              value={formData.email}
               onChange={handleChange}
             />
-          )}
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300"
-          >
-            {isSignup ? "Sign Up" : "Login"}
-          </button>
-        </form>
-        <p className="text-center text-sm mt-4 cursor-pointer text-blue-500 hover:text-blue-600" onClick={toggleForm}>
-          {isSignup ? "Already have an account? Login" : "Don't have an account? Sign Up"}
-        </p>
-      </motion.div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-gray-800"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {isSignup && (
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                required
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-gray-800"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+            )}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300"
+            >
+              {isSignup ? "Sign Up" : "Login"}
+            </button>
+          </form>
+          <p className="text-center text-sm mt-4 cursor-pointer text-blue-500 hover:text-blue-600" onClick={toggleForm}>
+            {isSignup ? "Already have an account? Login" : "Don't have an account? Sign Up"}
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Right Side - Image */}
+      <div className="w-2/3 h-screen bg-white">
+      <img
+        className="w-full h-full object-cover"
+        src={LoginImg} 
+        alt="Login"
+      />
+    </div>
     </div>
   );
 }
