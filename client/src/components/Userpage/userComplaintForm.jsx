@@ -256,7 +256,7 @@ const ComplaintForm = () => {
                   type="checkbox"
                   checked={formData.consent}
                   onChange={handleChange}
-                  className="h-4 w-4 rounded  border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 rounded   border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
               </div>
               <div className="ml-3 text-sm">

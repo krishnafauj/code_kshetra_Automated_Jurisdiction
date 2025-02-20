@@ -8,7 +8,8 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
-import UserComplaintFOrm from "./components/userComplaintForm";
+import UserComplaintFOrm from "./components/Userpage/userComplaintForm";
+import AdvocateCivilComplaintFomr from "./components/AdvocatePage/AdvocateCivilComplaintForm"
 import LoginPage from "./components/Userpage/Loginpage";
 function App() {
   const [user, setUser] = useState(null);
@@ -41,11 +42,11 @@ function App() {
             }
           />
           <Route
-            path="/complaintForm"
+            path="/test"
             element={
               
               <Layout>
-                <UserComplaintFOrm />
+                <AdvocateCivilComplaintFomr />
               </Layout>
             }
           />
