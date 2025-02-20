@@ -8,10 +8,10 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
-import AdvocateCivilComplaintFomr from "./components/AdvocatePage/AdvocateCivilComplaintForm"
-import LoginPage from "./components/Userpage/Loginpage";
-import PoliceLogin from "./components/PolicePage/PoliceLogin";
-import Magistrate from "./components/Magistrate/MagistrateLogin";
+import AdvocateCivilComplaintFomr from "./pages/AdvocatePage/AdvocateCivilComplaintForm"
+import LoginPage from "./pages/Userpage/Loginpage";
+import PoliceLogin from "./pages/PolicePage/PoliceLogin";
+import Magistrate from "./pages/Magistrate/MagistrateLogin";
 function App() {
   const [user, setUser] = useState(null);
 
