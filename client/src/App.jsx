@@ -35,9 +35,9 @@ function App() {
             path="/"
             element={
               
-              // <Layout>
+              <Layout>
                 <Home />
-              // </Layout>
+              </Layout>
             }
           />
           <Route
