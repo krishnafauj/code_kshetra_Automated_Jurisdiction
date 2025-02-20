@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Scale,
   FileText,
@@ -27,9 +28,14 @@ function StatCard({ icon: Icon, title, value, color }) {
     </div>
   );
 }
-function ActionButton({ icon: Icon, text }) {
+function ActionButton({ icon: Icon, text, to }) {
+  const navigate = useNavigate(); // Hook for navigation
+
   return (
-    <button className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-white hover:text-blue-600 font-medium">
+    <button
+      onClick={() => navigate(to)} // Redirect on click
+      className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-white hover:text-blue-600 font-medium"
+    >
       <Icon className="w-5 h-5" />
       {text}
     </button>
@@ -55,7 +61,7 @@ function Home() {
               Register, Track, and Resolve Cases Effortlessly
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton  icon={FileText} text="Register a Case" />
+              <ActionButton  icon={FileText} text="Register a Case" to="/user-complaint"/>
               <ActionButton icon={Clock} text="View your Case Status" />
               <ActionButton icon={Search} text="View All ongoing Cases " />
             </div>

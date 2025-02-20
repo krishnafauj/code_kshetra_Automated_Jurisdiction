@@ -3,7 +3,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import PoliceImg from "../../assets/policelogin.jpg";
 
-export default function MagistrateLogin() {
+export default function AdvocateLogin() {
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
   const [error, setError] = useState("");

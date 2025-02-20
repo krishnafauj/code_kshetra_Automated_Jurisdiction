@@ -8,10 +8,12 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
-import AdvocateCivilComplaintFomr from "./pages/AdvocatePage/AdvocateCivilComplaintForm"
+import AdvocateCivilComplaintForm from "./pages/AdvocatePage/AdvocateCivilComplaintForm"
+import UserComplaintForm from "./pages/Userpage/userComplaintForm";
 import LoginPage from "./pages/Userpage/Loginpage";
 import PoliceLogin from "./pages/PolicePage/PoliceLogin";
-import Magistrate from "./pages/Magistrate/MagistrateLogin";
+import MagistrateLogin from "./pages/Magistrate/MagistrateLogin";
+import AdvocateLogin from "./pages/AdvocatePage/AdvocateLogin";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -47,11 +49,20 @@ function App() {
           }
         />
         <Route
-          path="/test"
+          path="/user-complaint"
           element={
 
             <Layout>
-              <UserComplaintFOrm />
+              <UserComplaintForm />
+            </Layout>
+          }
+        />
+        <Route
+          path="/advocate-complaint"
+          element={
+
+            <Layout>
+              <AdvocateCivilComplaintForm />
             </Layout>
           }
         />
@@ -73,8 +84,10 @@ function App() {
           <PoliceLogin />
         } />
         <Route path="/magistrateLogin" element={
-          <Magistrate
-          />
+          <MagistrateLogin/>
+        } />
+        <Route path="/advocateLogin" element={
+          <AdvocateLogin/>
         } />
 
       </Routes>

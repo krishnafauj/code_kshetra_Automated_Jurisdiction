@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ComplaintForm = () => {
+const UserComplaintForm = () => {
   const [formData, setFormData] = useState({
     filingOnBehalf: 'self',
     name: '',
@@ -481,4 +481,4 @@ const ComplaintForm = () => {
   );
 };
 
-export default ComplaintForm;
+export default UserComplaintForm;

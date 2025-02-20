@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FileText, User, Users, Calendar, MapPin, Upload, AlertCircle } from 'lucide-react';
 
-const CivilCaseFilingForm = () => {
+const AdvocateCivilComplaintForm  = () => {
   const [formData, setFormData] = useState({
     caseTitle: '',
     caseCategory: '',
@@ -409,4 +409,4 @@ const CivilCaseFilingForm = () => {
   );
 };
 
-export default CivilCaseFilingForm;
+export default AdvocateCivilComplaintForm;
