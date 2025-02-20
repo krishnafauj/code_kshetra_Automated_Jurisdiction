@@ -13,7 +13,6 @@ export default function LoginPage() {
     setError("");
     setFormData({ email: "", password: "", confirmPassword: "" });
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -27,15 +26,19 @@ export default function LoginPage() {
       setError("Passwords do not match!");
       return;
     }
-
     try {
+      const endpoint1 = "http://localhost:3001";
       const endpoint = isSignup ? "/signup" : "/login";
+      const endpoint3=endpoint1+endpoint;
+      console.log(endpoint3);
       console.log(formData);
-      const { data } = await axios.post(endpoint, {
+      const { data } = await axios.post(endpoint1, {
         email: formData.email,
         password: formData.password,
+        role:"user",
+        
       });
-      alert(data.message); // Handle success response
+      
     } 
     catch (err) {
       setError(err.response?.data?.message || "An error occurred. Please try again.");

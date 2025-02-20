@@ -9,6 +9,7 @@ import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
 import AdvocateCivilComplaintFomr from "./components/AdvocatePage/AdvocateCivilComplaintForm"
+import UserComplaintForm from "./components/Userpage/userComplaintForm";
 import LoginPage from "./components/Userpage/Loginpage";
 import PoliceLogin from "./components/PolicePage/PoliceLogin";
 import Magistrate from "./components/Magistrate/MagistrateLogin";
@@ -51,7 +52,7 @@ function App() {
           element={
 
             <Layout>
-              <UserComplaintFOrm />
+              <UserComplaintForm />
             </Layout>
           }
         />
