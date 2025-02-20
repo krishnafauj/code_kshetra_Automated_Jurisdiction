@@ -27,7 +27,6 @@ function StatCard({ icon: Icon, title, value, color }) {
     </div>
   );
 }
-
 function ActionButton({ icon: Icon, text }) {
   return (
     <button className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-white hover:text-blue-600 font-medium">
@@ -57,9 +56,8 @@ function Home() {
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
               <ActionButton  icon={FileText} text="Register a Case" />
-              <ActionButton icon={Scale} text="Request Magistrate Approval" />
-              <ActionButton icon={Search} text="View Case Status" />
-              <ActionButton icon={Clock} text="Track Pending Cases" />
+              <ActionButton icon={Clock} text="View your Case Status" />
+              <ActionButton icon={Search} text="View All ongoing Cases " />
             </div>
           </div>
         </div>
