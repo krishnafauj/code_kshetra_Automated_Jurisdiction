@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import AutoIncrement from 'mongoose-sequence'; // Import plugin
 const BasicInfo = new mongoose.Schema({
-  userName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }, // Fixed `string` type
 });

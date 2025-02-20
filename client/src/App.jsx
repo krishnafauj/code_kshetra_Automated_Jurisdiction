@@ -63,6 +63,7 @@ function App() {
 
             <Layout>
               <AdvocateCivilComplaintForm />
+              <UserComplaintForm />
             </Layout>
           }
         />
