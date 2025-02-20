@@ -47,7 +47,7 @@ const ComplaintForm = () => {
 
   return(
     
-      <div className="max-w-3xl min-w-screen mx-auto">
+      <div className="max-w-3xl min-w-screen mx-auto ">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
           {/* Header */}
           <div className="bg-blue-600 px-6 py-4">
@@ -103,7 +103,7 @@ const ComplaintForm = () => {
               <h3 className="text-lg font-medium text-gray-900 mb-4">Personal Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-black">Full Name</label>
                   <input
                     id="name"
                     type="text"
@@ -111,7 +111,7 @@ const ComplaintForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
 
@@ -124,7 +124,7 @@ const ComplaintForm = () => {
                     value={formData.mobile}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block text-black w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
 
@@ -136,7 +136,7 @@ const ComplaintForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
 
@@ -151,7 +151,7 @@ const ComplaintForm = () => {
                     required
                     min="0"
                     max="120"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -170,7 +170,7 @@ const ComplaintForm = () => {
                     value={formData.district}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   >
                     <option value="">Select District</option>
                     <option value="District1">District 1</option>
@@ -187,7 +187,7 @@ const ComplaintForm = () => {
                     value={formData.incidentDate}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
 
@@ -199,7 +199,7 @@ const ComplaintForm = () => {
                     value={formData.complaintType}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   >
                     <option value="">Select Complaint Type</option>
                     <option value="Loot">Loot</option>
@@ -217,7 +217,7 @@ const ComplaintForm = () => {
                     value={formData.complaintTitle}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -231,7 +231,7 @@ const ComplaintForm = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 ></textarea>
               </div>
 
@@ -256,7 +256,7 @@ const ComplaintForm = () => {
                   type="checkbox"
                   checked={formData.consent}
                   onChange={handleChange}
-                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 rounded  border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
               </div>
               <div className="ml-3 text-sm">

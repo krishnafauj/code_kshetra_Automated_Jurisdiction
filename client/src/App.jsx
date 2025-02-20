@@ -9,7 +9,7 @@ import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
 import UserComplaintFOrm from "./components/userComplaintForm";
-
+import LoginPage from "./components/Userpage/Loginpage";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -60,8 +60,11 @@ function App() {
               </AuthMiddleware>
             }
           /> */}
- 
+          <Route  path="/login" element={
+            <LoginPage/>
+          }/>
         </Routes>
+
       </Router>
     // </UserContext.Provider>
   );
