@@ -41,7 +41,7 @@ function Home() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'} w-screen`}>
+    <div className={`${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}  min-w-screen`}>
       {/* Navigation */}
       {/* <Navbar/> */}
 

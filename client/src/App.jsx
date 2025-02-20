@@ -29,16 +29,15 @@ function App() {
   // }, []);
 
   return (
-    // <UserContext.Provider value={user}>
       <Router>
         <Routes>
           <Route
             path="/"
             element={
               
-              <Layout>
+              // <Layout>
                 <Home />
-              </Layout>
+              // </Layout>
             }
           />
           <Route
