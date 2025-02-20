@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import UserComplaintFOrm from "./components/Userpage/userComplaintForm";
 import AdvocateCivilComplaintFomr from "./components/AdvocatePage/AdvocateCivilComplaintForm"
 import LoginPage from "./components/Userpage/Loginpage";
+import PoliceLogin from "./components/PolicePage/PoliceLogin";
+import Magistrate from "./components/Magistrate/MagistrateLogin";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -61,8 +63,15 @@ function App() {
               </AuthMiddleware>
             }
           /> */}
-          <Route  path="/login" element={
+          <Route  path="/userlogin" element={
             <LoginPage/>
+          }/>
+           <Route  path="/policeLogin" element={
+            <PoliceLogin/>
+          }/>
+           <Route  path="/magistrateLogin" element={
+            <Magistrate
+/>
           }/>
         </Routes>
 
