@@ -29,30 +29,34 @@ function App() {
   //   };
   //   fetchUser();
   // }, []);
+   const handleloginfunction= async()=>
+  {
+
+  }
 
   return (
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/test"
-            element={
-              
-              <Layout>
-                <AdvocateCivilComplaintFomr />
-              </Layout>
-            }
-          />
-          
-          {/* <Route
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/test"
+          element={
+
+            <Layout>
+              <UserComplaintFOrm />
+            </Layout>
+          }
+        />
+
+        {/* <Route
             path="/xyz"
             element={
               <AuthMiddleware>
@@ -62,19 +66,20 @@ function App() {
               </AuthMiddleware>
             }=
           /> */}
-          <Route  path="/userlogin" element={
-            <LoginPage/>
-          }/>
-           <Route  path="/policeLogin" element={
-            <PoliceLogin/>
-          }/>
-           <Route  path="/magistrateLogin" element={
-            <Magistrate
-/>
-          }/>
-        </Routes>
+        <Route path="/userlogin" element={
+          <LoginPage />
+        } />
+        <Route path="/policeLogin" element={
+          <PoliceLogin />
+        } />
+        <Route path="/magistrateLogin" element={
+          <Magistrate
+          />
+        } />
 
-      </Router>
+      </Routes>
+
+    </Router>
     // </UserContext.Provider>
   );
 }
