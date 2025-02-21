@@ -6,7 +6,7 @@ const BasicInfo = new mongoose.Schema({
 });
 const CaseInfo = new mongoose.Schema({
   email: { type: String, unique: true, required: true }, 
-  Fir_NO: { type: String, unique: true }, // Fixed `string` to `String`
+  Fir_NO: { type: Number, unique: true }, // Fixed `string` to `String`
 });
 
 CaseInfo.plugin(AutoIncrement(mongoose), { inc_field: 'Fir_NO' });
