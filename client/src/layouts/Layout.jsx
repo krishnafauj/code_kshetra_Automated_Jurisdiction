@@ -31,7 +31,7 @@ const Layout = ({ children, userRole }) => {
       {/* Main Content */}
       <div className="flex flex-col flex-1 transition-all duration-300">
         <Header />
-        <main className="flex-1 p-4 transition-all duration-300">
+        <main className="flex-1 transition-all duration-300">
           {children}
         </main>
         <Footer />

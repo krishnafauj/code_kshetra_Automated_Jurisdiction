@@ -21,7 +21,7 @@ const Sidebar = ({ isDarkMode }) => {
   const stakeholderItems = [
     { name: 'Police Portal', icon: Building2, path: '/police' },
     { name: 'Advocate Portal', icon: Building2, path: '/advocate' },
-    { name: 'Magisterate Portal', icon: Users, path: '/court' },
+    { name: 'Magisterate Portal', icon: Users, path: '/magist' },
   ];
 
   const NavItem = ({ item }) => {
@@ -84,7 +84,7 @@ const Sidebar = ({ isDarkMode }) => {
         </div>
 
         {/* Stakeholder Portals */}
-        <div className="space-y-1">
+        <div className=" space-y-1">
           {!isCollapsed && (
             <h3 className="px-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               Stakeholder Portals

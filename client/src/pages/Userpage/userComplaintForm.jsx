@@ -80,9 +80,10 @@ const UserComplaintForm = () => {
   };
 
   return (
-    <div className="max-w-3xl min-w-screen mx-auto">
-      <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-        {/* Header */}
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+           {/* Header */}
         <div className="bg-blue-600 px-6 py-4">
           <h2 className="text-2xl font-bold text-white">Complaint Registration Form</h2>
         </div>
@@ -476,6 +477,7 @@ const UserComplaintForm = () => {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

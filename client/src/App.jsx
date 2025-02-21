@@ -8,13 +8,17 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
-import AdvocateHome from "./pages/AdvocatePage/AdvocateHome"
+import AdvocateHome from "./pages/AdvocatePage/AdvocateHome";
+import PoliceHome from "./pages/PolicePage/PoliceHome";
+import MagisterateHome from "./pages/Magistrate/MagisterateHome";
 import AdvocateCivilComplaintForm from "./pages/AdvocatePage/AdvocateCivilComplaintForm"
 import UserComplaintForm from "./pages/Userpage/userComplaintForm";
 import LoginPage from "./pages/Userpage/Loginpage";
 import PoliceLogin from "./pages/PolicePage/PoliceLogin";
 import MagistrateLogin from "./pages/Magistrate/MagistrateLogin";
 import AdvocateLogin from "./pages/AdvocatePage/AdvocateLogin";
+import CaseDetails from "./components/CaseDetails";
+import CasesList from "./components/CasesList";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -32,6 +36,24 @@ function App() {
   //   };
   //   fetchUser();
   // }, []);
+
+
+  const casesData = [
+    {
+      id: '1',
+      title: 'Burglary at Downtown',
+      status: 'accepted',
+      firLink: '/files/fir1.pdf',
+      chargesheetLink: '/files/chargesheet1.pdf',
+      evidenceLink: '/files/evidence1.zip',
+    },
+    {
+      id: '2',
+      title: 'Vandalism in Park',
+      status: 'rejected',
+      downloadLink: '/files/rejected-case2.pdf',
+    },
+  ];
 
   return (
     <Router>
@@ -63,6 +85,37 @@ function App() {
             </Layout>
           }
         />
+
+        <Route
+          path="/police"
+          element={
+
+            <Layout>
+              <PoliceHome />
+            </Layout>
+          }
+        />
+        <Route
+          path="/magisterate"
+          element={
+
+            <Layout>
+              <MagisterateHome />
+            </Layout>
+          }
+        />
+        {/* <Route
+          path="/test"
+          element={
+
+            <Layout>
+              <CaseCard />
+            </Layout>
+          }
+        /> */}
+
+      <Route path="/cases" element={<CasesList cases={casesData} />} />
+      <Route path="/case/:id" element={<CaseDetails casesData={casesData} />} />
 
         {/* <Route
             path="/xyz"

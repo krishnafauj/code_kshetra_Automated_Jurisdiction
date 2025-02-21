@@ -20,8 +20,9 @@ const PoliceSidebar = ({ isDarkMode }) => {
   ];
 
   const stakeholderItems = [
+    {name: 'User Portal', icon: Users, path: "/"},
     { name: 'Police Portal', icon: Building2, path: '/police' },
-    { name: 'Court Portal', icon: Users, path: '/court' },
+    { name: 'Magisterate Portal', icon: Building2, path: '/magisterate' },
   ];
 
   const NavItem = ({ item }) => {

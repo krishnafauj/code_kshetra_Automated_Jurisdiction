@@ -51,7 +51,7 @@ const AdvocateCivilComplaintForm  = () => {
           <div className="bg-blue-600 px-6 py-4">
             <div className="flex items-center space-x-2">
               <FileText className="h-6 w-6 text-white" />
-              <h2 className="text-2xl font-bold text-white">Civil Case Filing Form</h2>
+              <h2 className="text-2xl font-bold text-white">Client Case Filing Form</h2>
             </div>
           </div>
 
