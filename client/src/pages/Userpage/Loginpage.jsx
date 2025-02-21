@@ -39,6 +39,7 @@ export default function LoginPage() {
       const { data } = await axios.post(fullUrl, {
         email: formData.email,
         password: formData.password,
+        role:"user",
       });
       alert(data.message); // Handle success response
     } catch (error) {
