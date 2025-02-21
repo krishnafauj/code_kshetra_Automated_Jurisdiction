@@ -87,7 +87,8 @@ function App() {
           <AdvocateLogin/>
         } />
         <Route path="/advocate" element={
-            <AdvocateHome />
+          <Layout><AdvocateHome /></Layout>
+            
         } />
 
       </Routes>

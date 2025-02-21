@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Navbar';
 import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
+import PoliceSidebar from '../components/policeSidebar';
+import AdvocateSidebar from '../components/advocateSidebar';
+import MagisterateSidebar from '../components/MagisterateSidebar';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, userRole }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Function to return the appropriate sidebar based on userRole
+  const renderSidebar = () => {
+    switch (userRole) {
+      case 'police':
+        return <PoliceSidebar isDarkMode={isDarkMode} />;
+      case 'advocate':
+        return <AdvocateSidebar isDarkMode={isDarkMode} />;
+      case 'magistrate':
+        return <MagisterateSidebar isDarkMode={isDarkMode} />;
+      default:
+        return <Sidebar isDarkMode={isDarkMode} />;
+    }
+  };
+
   return (
-    <div>
+    <div className={`${isDarkMode ? 'dark' : ''} flex min-h-screen`}>
+      {/* Render appropriate sidebar */}
+      {renderSidebar()}
+
+      {/* Main Content */}
+      <div className="flex flex-col flex-1 transition-all duration-300">
         <Header />
-      <main >
-        {children}
-      </main>
-      <Footer />
+        <main className="flex-1 p-4 transition-all duration-300">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

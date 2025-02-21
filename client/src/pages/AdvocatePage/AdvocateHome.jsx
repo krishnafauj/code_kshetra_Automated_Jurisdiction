@@ -36,9 +36,9 @@ function AdvocateHome() {
               Register, Track, and Resolve Cases Effortlessly
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton  icon={FileText} text="Register a Case" to="/user-complaint"/>
+              <ActionButton  icon={FileText} text="Register Client Case" to="/advocate-complaint"/>
               <ActionButton icon={Clock} text="View your Case Status" />
-              <ActionButton icon={Search} text="View All ongoing Cases " />
+              <ActionButton icon={Search} text="Search all current Cases " />
             </div>
           </div>
         </div>
