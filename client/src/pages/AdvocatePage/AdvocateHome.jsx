@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Scale,
   FileText,
@@ -28,13 +28,19 @@ function AdvocateHome() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-4xl font-bold mb-6">
-              Justice at Your Fingertips
+              Empower Your Legal Practice
             </h1>
             <p className="text-xl mb-12 text-blue-100">
-              Register, Track, and Resolve Cases Effortlessly
+              File, track, and manage cases seamlessly with advanced legal tools
+              at your fingertips.
             </p>
+
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton  icon={FileText} text="Register Client Case" to="/advocate-complaint"/>
+              <ActionButton
+                icon={FileText}
+                text="Register Client Case"
+                to="/advocate-complaint"
+              />
               <ActionButton icon={Clock} text="View your Case Status" />
               <ActionButton icon={Search} text="Search all current Cases " />
             </div>
@@ -78,13 +84,17 @@ function AdvocateHome() {
       {/* Stakeholder Sections */}
       <section className="py-12 bg-white dark:bg-gray-800 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Stakeholder Portals</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">
+            Stakeholder Portals
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Police Portal */}
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <Building2 className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Police Portal</h3>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  Police Portal
+                </h3>
               </div>
               <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                 <li>• View registered cases</li>
@@ -97,7 +107,9 @@ function AdvocateHome() {
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <Scale className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Magistrate Portal</h3>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  Magistrate Portal
+                </h3>
               </div>
               <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                 <li>• Review case applications</li>
@@ -110,7 +122,9 @@ function AdvocateHome() {
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <Users className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Court Portal</h3>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  Court Portal
+                </h3>
               </div>
               <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                 <li>• Manage hearings calendar</li>
@@ -127,27 +141,37 @@ function AdvocateHome() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Legal Resources</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+                Legal Resources
+              </h2>
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <FileText className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Know Your Rights</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Know Your Rights
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Court Schedules</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Court Schedules
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <MessageSquare className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Legal Aid Support</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Legal Aid Support
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Emergency Contacts</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+                Emergency Contacts
+              </h2>
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <div className="space-y-4">
                   <p className="text-gray-700 dark:text-gray-300">
@@ -167,7 +191,6 @@ function AdvocateHome() {
       </section>
 
       {/* Footer */}
-      
     </div>
   );
 }

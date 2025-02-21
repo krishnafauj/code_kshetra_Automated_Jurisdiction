@@ -13,10 +13,10 @@ import {
   Moon,
   Sun,
   MessageSquare,
-  Globe
-} from 'lucide-react';
-import StatCard from '../../components/StatCard';
-import ActionButton from '../../components/ActionButton';
+  Globe,
+} from "lucide-react";
+import StatCard from "../../components/StatCard";
+import ActionButton from "../../components/ActionButton";
 
 function PoliceHome() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
@@ -48,10 +48,11 @@ function PoliceHome() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-4xl font-bold mb-6">
-              Justice at Your Fingertips
+              Swift Action, Secure Records
             </h1>
             <p className="text-xl mb-12 text-blue-100">
-              Register, Track, and Resolve Cases Effortlessly
+              Investigate, manage, and resolve cases efficiently while upholding
+              public trust.
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
             <Link to="">
@@ -113,27 +114,37 @@ function PoliceHome() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Legal Resources</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+                Legal Resources
+              </h2>
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <FileText className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Know Your Rights</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Know Your Rights
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Court Schedules</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Court Schedules
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <MessageSquare className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Legal Aid Support</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      Legal Aid Support
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Emergency Contacts</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+                Emergency Contacts
+              </h2>
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <div className="space-y-4">
                   <p className="text-gray-700 dark:text-gray-300">
