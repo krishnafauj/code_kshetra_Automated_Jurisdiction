@@ -14,11 +14,10 @@ import {
   MessageSquare,
   Globe
 } from 'lucide-react';
-// import Navbar from '../components/Navbar';
-import StatCard from '../components/StatCard';
-import ActionButton from '../components/ActionButton';
+import StatCard from '../../components/StatCard';
+import ActionButton from '../../components/ActionButton';
 
-function Home() {
+function AdvocateHome() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   return (
@@ -175,4 +174,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AdvocateHome;

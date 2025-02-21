@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import Layout from "./layouts/Layout"
 import Home from "./pages/Home";
+import AdvocateHome from "./pages/AdvocatePage/AdvocateHome"
 import AdvocateCivilComplaintForm from "./pages/AdvocatePage/AdvocateCivilComplaintForm"
 import UserComplaintForm from "./pages/Userpage/userComplaintForm";
 import LoginPage from "./pages/Userpage/Loginpage";
@@ -31,10 +32,6 @@ function App() {
   //   };
   //   fetchUser();
   // }, []);
-   const handleloginfunction= async()=>
-  {
-
-  }
 
   return (
     <Router>
@@ -63,7 +60,6 @@ function App() {
 
             <Layout>
               <AdvocateCivilComplaintForm />
-              <UserComplaintForm />
             </Layout>
           }
         />
@@ -81,14 +77,17 @@ function App() {
         <Route path="/userlogin" element={
           <LoginPage />
         } />
-        <Route path="/policeLogin" element={
+        <Route path="/policelogin" element={
           <PoliceLogin />
         } />
-        <Route path="/magistrateLogin" element={
+        <Route path="/magistratelogin" element={
           <MagistrateLogin/>
         } />
         <Route path="/advocateLogin" element={
           <AdvocateLogin/>
+        } />
+        <Route path="/advocate" element={
+            <AdvocateHome />
         } />
 
       </Routes>
