@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const uniqueId = uuidv4();
 console.log("Generated UUID:", uniqueId);
 
-import police_station_info from "../../model/Police_Schema.js"; // Import the model directly
+import police_station_info from "../../model/Police_Schema.js"; // Import the model Ndirectly
 import jwt from "jsonwebtoken";
 const policelogin = async (req, res) => {
     console.log("Received request to login");
