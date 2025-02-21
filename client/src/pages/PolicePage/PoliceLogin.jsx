@@ -28,19 +28,25 @@ export default function PoliceLogin() {
       return;
     }
 
+    const baseUrl = "http://localhost:3001/police"; // Corrected URL format
+    const endpoint = isSignup ? "/signup" : "/login";
+    const fullUrl = baseUrl + endpoint; // Proper concatenation
+
+    console.log(fullUrl);
+    console.log(formData);
+
     try {
-      const endpoint = isSignup ? "/signup" : "/login";
-      console.log(formData);
-      const { data } = await axios.post(endpoint, {
+      const { data } = await axios.post(fullUrl, {
         email: formData.email,
         password: formData.password,
-        role: "Police",
+        role:"police",
       });
       alert(data.message); // Handle success response
-    } 
-    catch (err) {
-      setError(err.response?.data?.message || "An error occurred. Please try again.");
+    } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
+      alert("Login/Signup failed. Please try again.");
     }
+
   };
 
   return (
