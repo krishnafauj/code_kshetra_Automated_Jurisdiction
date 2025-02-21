@@ -9,8 +9,8 @@ import magistratesignup from '../controller/magistrate/magistratesignup.js';
 import magistratelogin from '../controller/magistrate/magistrate__login.js';
 import lawyerlogin from '../controller/lawyer/lawyerlogin.js';
 import lawyersignup from '../controller/lawyer/lawyersignup.js';
-
 router.use(cors());
+
 router
     .post('/signup', (req, res) => {
         usersignup(req, res);
