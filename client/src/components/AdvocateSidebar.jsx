@@ -29,11 +29,11 @@ const AdvocateSidebar = ({ isDarkMode }) => {
     return (
       <Link
         to={item.path}
-        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-          isActive 
-            ? 'bg-blue-600 text-white' 
+
+        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${isActive
+            ? 'bg-blue-600 text-white'
             : 'text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'
-        }`}
+          }`}
       >
         <item.icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-white dark:text-white'}`} />
         {!isCollapsed && <span className='text-white'>{item.name}</span>}
@@ -47,11 +47,8 @@ const AdvocateSidebar = ({ isDarkMode }) => {
 
   return (
     <aside
-      className={`${
-        isDarkMode ? 'bg-gray-800' : 'bg-[#1E2939]'
-      } fixed left-0 top-0 h-screen shadow-lg transition-all ${
-        isCollapsed ? 'w-16' : 'w-64'
-      } z-80 `}
+      className={`bg-transparent fixed left-0 top-0 h-screen shadow-lg transition-all ${isCollapsed ? 'w-16' : 'w-64'
+        } z-80 `}
     >
       {/* Logo */}
       <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'px-6'} h-[70px] border-b dark:border-gray-700 `}>
@@ -64,8 +61,8 @@ const AdvocateSidebar = ({ isDarkMode }) => {
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-full p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700"
         >
-          {isCollapsed ? <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" /> 
-                       : <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />}
+          {isCollapsed ? <ChevronRight className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+            : <ChevronLeft className="w-4 h-4 text-gray-600 dark:text-gray-300" />}
         </button>
       </div>
 
