@@ -16,16 +16,14 @@ import {
 } from 'lucide-react';
 import StatCard from '../../components/StatCard';
 import ActionButton from '../../components/ActionButton';
+import AdvocateSidebar from '../../components/advocateSidebar';
 
 function AdvocateHome() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Navigation */}
-      {/* <Navbar/> */}
-
-      {/* Hero Section */}
+      <AdvocateSidebar/>
       <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">

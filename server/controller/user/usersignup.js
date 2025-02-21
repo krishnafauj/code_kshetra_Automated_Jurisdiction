@@ -21,7 +21,8 @@ const usersignup = async (req, res) => {
     res.status(201).json({ message: "User created successfully", user: newUser });
   } catch (error) {
     console.error("Error during signup:", error);
-
+    const token = jwt.sign({ email: user.email, role: user.role }, "user", { expiresIn: '1h' });
+    
     res.status(500).json({ message: "Internal server error" });
   }
 };

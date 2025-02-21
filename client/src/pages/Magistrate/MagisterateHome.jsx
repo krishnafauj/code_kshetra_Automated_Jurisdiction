@@ -16,14 +16,32 @@ import {
 } from 'lucide-react';
 import StatCard from '../../components/StatCard';
 import ActionButton from '../../components/ActionButton';
+import MagisterateSidebar from '../../components/MagisterateSidebar';
 
 function MagisterateHome() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Navigation */}
-      {/* <Navbar/> */}
+
+      <MagisterateSidebar/>
+      <div className='w-screen  z-90'>
+        <nav className="bg-white shadow-md dark:bg-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Scale className="w-8 h-8 text-blue-600" />
+                <span className="text-xl font-bold text-gray-800 dark:text-white">JusticeHub</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <button>
+                  Login
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
 
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800">
@@ -36,7 +54,7 @@ function MagisterateHome() {
               Register, Track, and Resolve Cases Effortlessly
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton  icon={FileText} text="Register Client Case" to="/advocate-complaint"/>
+              <ActionButton icon={FileText} text="Register Client Case" to="/advocate-complaint" />
               <ActionButton icon={Clock} text="View your Case Status" />
               <ActionButton icon={Search} text="Search all current Cases " />
             </div>
@@ -169,7 +187,7 @@ function MagisterateHome() {
       </section>
 
       {/* Footer */}
-      
+
     </div>
   );
 }

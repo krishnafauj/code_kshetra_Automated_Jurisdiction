@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PoliceSidebar from '../../components/policeSidebar';
 import {
   Scale,
   FileText,
@@ -21,12 +22,29 @@ function PoliceHome() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Navigation */}
-      {/* <Navbar/> */}
-
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+    
+    <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'} `}>
+      <PoliceSidebar/>
+      <div className='w-screen  z-90'>
+               <nav className="bg-white shadow-md dark:bg-gray-800">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <Scale className="w-8 h-8 text-blue-600" />
+                    <span className="text-xl font-bold text-gray-800 dark:text-white">JusticeHub</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <button>
+                      Login
+                    </button>
+                  
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div>
+          <section className="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-4xl font-bold mb-6">
@@ -36,16 +54,27 @@ function PoliceHome() {
               Register, Track, and Resolve Cases Effortlessly
             </p>
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton  icon={FileText} text="Register Client Case" to="/advocate-complaint"/>
-              <ActionButton icon={Clock} text="View your Case Status" />
-              <ActionButton icon={Search} text="Search all current Cases " />
+            <Link to="">
+            <button>
+              All Requested Case  List
+            </button>
+            </Link>
+            <Link>
+            <button>
+              All cognizable case  List
+            </button>
+            </Link>
+            <Link>
+            <button>
+              All non cognizable case List
+            </button>
+            </Link>
             </div>
           </div>
         </div>
         {/* <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent dark:from-gray-900"></div> */}
       </section>
 
-      {/* Statistics Section */}
       <section className="py-12 -mt-10 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -77,52 +106,7 @@ function PoliceHome() {
         </div>
       </section>
 
-      {/* Stakeholder Sections */}
-      <section className="py-12 bg-white dark:bg-gray-800 shadow-inner">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Stakeholder Portals</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Police Portal */}
-            <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Police Portal</h3>
-              </div>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                <li>• View registered cases</li>
-                <li>• Submit charge sheets</li>
-                <li>• Track investigations</li>
-              </ul>
-            </div>
-
-            {/* Magistrate Portal */}
-            <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <Scale className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Magistrate Portal</h3>
-              </div>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                <li>• Review case applications</li>
-                <li>• Assign court proceedings</li>
-                <li>• Handle special petitions</li>
-              </ul>
-            </div>
-
-            {/* Court Portal */}
-            <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">Court Portal</h3>
-              </div>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                <li>• Manage hearings calendar</li>
-                <li>• Access case documents</li>
-                <li>• Update case status</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Resources Section */}
       <section className="py-12">
@@ -168,7 +152,7 @@ function PoliceHome() {
         </div>
       </section>
 
-      {/* Footer */}
+          </div>
       
     </div>
   );

@@ -47,7 +47,7 @@ const AdvocateSidebar = ({ isDarkMode }) => {
 
   return (
     <aside
-      className={`bg-transparent fixed left-0 top-0 h-screen shadow-lg transition-all ${isCollapsed ? 'w-16' : 'w-64'
+      className={`bg-black fixed left-0 top-0 h-screen shadow-lg transition-all ${isCollapsed ? 'w-16' : 'w-64'
         } z-80 `}
     >
       {/* Logo */}

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import LoginImg from "../../assets/77429.jpg"
-
+import { useNavigate } from "react-router-dom";
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
   const [error, setError] = useState("");
@@ -42,7 +43,9 @@ export default function LoginPage() {
         role:"user",
       });
       alert(data.message); // Handle success response
-    } catch (error) {
+      navigate("/", { state: { email: formData.email } });
+    } 
+    catch (error) {
       console.error("Error:", error.response?.data || error.message);
       alert("Login/Signup failed. Please try again.");
     }

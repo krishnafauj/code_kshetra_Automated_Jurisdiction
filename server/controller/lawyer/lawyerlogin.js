@@ -22,17 +22,11 @@ const lawyerlogin = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-
-        // Validate the password
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return res.status(401).json({ message: "Invalid credentials" });
         }
-
-        // Generate JWT token
-        const token = jwt.sign({ email: user.email, role: user.role }, "apple", { expiresIn: '1h' });
-        console.log(token);
-
+        const token = jwt.sign({ email: user.email, role: user.role }, "lawyer", { expiresIn: '1h' });
         res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "Strict", maxAge: 3600000 });
 
         return res.status(200).json({ message: "Login successful", user: { email: user.email, role: user.role } });

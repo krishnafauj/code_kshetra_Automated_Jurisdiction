@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useLocation } from "react-router-dom";
 
 const UserComplaintForm = () => {
+  const email = localStorage.getItem("userEmail") || "No Email Provided";
+  console.log(email);
   const [formData, setFormData] = useState({
     filingOnBehalf: 'self',
     name: '',
@@ -24,7 +27,7 @@ const UserComplaintForm = () => {
     additionalComments: '',
     consent: false,
   });
-
+  
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     if (type === 'checkbox') {
@@ -71,11 +74,9 @@ const UserComplaintForm = () => {
     setFormData((prev) => ({ ...prev, victims: updatedVictims }));
   };
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    if (!formData.consent) {
-      alert('Please accept the consent to proceed.');
-      return;
-    }
+
     console.log('Complaint submitted:', formData);
   };
 

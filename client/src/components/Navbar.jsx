@@ -27,13 +27,9 @@ function Navbar() {
               <span className="text-xl font-bold text-gray-800 dark:text-white">JusticeHub</span>
             </div>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              <button>
+                Login
               </button>
-              <Globe className="w-5 h-5 text-gray-600" />
             
             </div>
           </div>
