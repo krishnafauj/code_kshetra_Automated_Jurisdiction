@@ -17,8 +17,9 @@ import LoginPage from "./pages/Userpage/Loginpage";
 import PoliceLogin from "./pages/PolicePage/PoliceLogin";
 import MagistrateLogin from "./pages/Magistrate/MagistrateLogin";
 import AdvocateLogin from "./pages/AdvocatePage/AdvocateLogin";
-import CaseDetails from "./components/CaseDetails";
-import CasesList from "./components/CasesList";
+import CaseDetails from "./pages/CaseDetails";
+import CasesStatus from "./pages/casesStatus";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -114,7 +115,7 @@ function App() {
           }
         /> */}
 
-      <Route path="/cases" element={<CasesList cases={casesData} />} />
+      <Route path="/cases" element={<CasesStatus cases={casesData} />} />
       <Route path="/case/:id" element={<CaseDetails casesData={casesData} />} />
 
         {/* <Route

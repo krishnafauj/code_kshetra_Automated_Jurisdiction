@@ -21,7 +21,7 @@ const Sidebar = ({ isDarkMode }) => {
   const stakeholderItems = [
     { name: 'Police Portal', icon: Building2, path: '/police' },
     { name: 'Advocate Portal', icon: Building2, path: '/advocate' },
-    { name: 'Magisterate Portal', icon: Users, path: '/magist' },
+    { name: 'Magisterate Portal', icon: Users, path: '/magisterate' },
   ];
 
   const NavItem = ({ item }) => {
