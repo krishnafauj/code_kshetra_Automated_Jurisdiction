@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useLocation } from "react-router-dom";
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const UserComplaintForm = () => {
+  const navigate = useNavigate();
   const email = localStorage.getItem("userEmail") || "No Email Provided";
-  console.log(email);
   const [formData, setFormData] = useState({
     filingOnBehalf: 'self',
     name: '',
     mobile: '',
+    useremail: email,
     email: '',
     age: '',
     gender: '',
@@ -76,8 +78,17 @@ const UserComplaintForm = () => {
   const handleSubmit = (e) => {
 
     e.preventDefault();
-
-    console.log('Complaint submitted:', formData);
+    try{
+      console.log(formData);
+      const data=axios.post("http://localhost:3001/userdata",formData);
+   
+      
+        alert("Data Saved Successfully");
+        navigate("/userlogin")
+      
+    }catch(error){
+      console.log(error);
+    }
   };
 
   return (

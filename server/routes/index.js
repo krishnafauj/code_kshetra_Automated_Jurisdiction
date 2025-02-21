@@ -10,14 +10,20 @@ import magistratelogin from '../controller/magistrate/magistrate__login.js';
 import lawyerlogin from '../controller/lawyer/lawyerlogin.js';
 import lawyersignup from '../controller/lawyer/lawyersignup.js';
 import authjwt from '../controller/auth/auth.js';
-
+import userfillingdata from '../controller/user/fillingdata.js';
+import datataker from '../controller/user/datataker.js';
 router
     .use(cors())
     .post('/signup', (req, res) => {
         usersignup(req, res);
     })
+    .post("/getcases",(req,res)=>{
+        datataker(req,res)
+    })
     .post('/login', (req, res) => { userVerify(req, res) })
-
+    .post('/userdata', (req, res) => {
+        userfillingdata(req, res);
+    })
 
     .post('/police/signup',(req, res) => {
         policesignup(req, res);

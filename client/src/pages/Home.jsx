@@ -12,7 +12,6 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import StatCard from '../components/StatCard';
-import ActionButton from '../components/ActionButton';
 import { useLocation } from "react-router-dom";
 import Sidebar from '../components/Sidebar';
 
@@ -25,7 +24,6 @@ function Home() {
   const handleNavigate = () => {
     localStorage.setItem("userEmail", email);
   };
-
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
@@ -48,9 +46,17 @@ function Home() {
                   Register A Case
                 </button>
               </Link>
+              <Link to="/cases">
+              <button className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-white hover:text-blue-600 font-medium">
+                View My Cases
+              </button>
+              </Link>
+              <Link>
+              <button className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-white hover:text-blue-600 font-medium">
+                Seach For Cases
+              </button>
 
-              <ActionButton icon={Clock} text="View your Case Status" />
-              <ActionButton icon={Search} text="View All ongoing Cases" />
+              </Link>
             </div>
           </div>
         </div>

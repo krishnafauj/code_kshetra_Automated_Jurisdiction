@@ -19,45 +19,14 @@ import MagistrateLogin from "./pages/Magistrate/MagistrateLogin";
 import AdvocateLogin from "./pages/AdvocatePage/AdvocateLogin";
 import CaseDetails from "./pages/CaseDetails";
 import CasesStatus from "./pages/casesStatus";
-
+import Policecases from "./pages/PolicePage/userpolice";
 function App() {
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   // Attempt to fetch user data if logged in
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await axios.get("/api/v1/admin/verify-token"); // Verify token endpoint
-  //       if (response.data.isAuthenticated) {
-  //         setUser(response.data.name); // Set user name or any other info you want to pass down
-  //       }
-  //     } catch (error) {
-  //       console.error("User not authenticated:", error);
-  //     }
-  //   };
-  //   fetchUser();
-  // }, []);
-
-
-  const casesData = [
-    {
-      id: '1',
-      title: 'Burglary at Downtown',
-      status: 'accepted',
-      firLink: '/files/fir1.pdf',
-      chargesheetLink: '/files/chargesheet1.pdf',
-      evidenceLink: '/files/evidence1.zip',
-    },
-    {
-      id: '2',
-      title: 'Vandalism in Park',
-      status: 'rejected',
-      downloadLink: '/files/rejected-case2.pdf',
-    },
-  ];
 
   return (
     <Router>
+
       <Routes>
         <Route
           path="/"
@@ -68,6 +37,13 @@ function App() {
             </Layout>
           }
         />
+        <Route
+          path="/policecase"
+          element={
+              <Policecases />
+          }
+        />
+
         <Route
           path="/user-complaint"
           element={
@@ -115,8 +91,8 @@ function App() {
           }
         /> */}
 
-      <Route path="/cases" element={<CasesStatus cases={casesData} />} />
-      <Route path="/case/:id" element={<CaseDetails casesData={casesData} />} />
+      <Route path="/cases" element={<CasesStatus/>}/>
+      <Route path="/case/:id"  />
 
         {/* <Route
             path="/xyz"
