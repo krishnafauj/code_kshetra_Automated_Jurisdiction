@@ -28,19 +28,26 @@ export default function LoginPage() {
       return;
     }
 
+    const baseUrl = "http://localhost:3001"; // Corrected URL format
+    const endpoint = isSignup ? "/signup" : "/login";
+    const fullUrl = baseUrl + endpoint; // Proper concatenation
+
+    console.log(fullUrl);
+    console.log(formData);
+
     try {
-      const endpoint = isSignup ? "/signup" : "/login";
-      console.log(formData);
-      const { data } = await axios.post(endpoint, {
+      const { data } = await axios.post(fullUrl, {
         email: formData.email,
         password: formData.password,
+        role:"user",
       });
       alert(data.message); // Handle success response
-    } 
-    catch (err) {
-      setError(err.response?.data?.message || "An error occurred. Please try again.");
+    } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
+      alert("Login/Signup failed. Please try again.");
     }
-    
+
+
   };
 
   return (
@@ -100,12 +107,12 @@ export default function LoginPage() {
 
       {/* Right Side - Image */}
       <div className="w-2/3 h-screen bg-white">
-      <img
-        className="w-full h-full object-cover"
-        src={LoginImg} 
-        alt="Login"
-      />
-    </div>
+        <img
+          className="w-full h-full object-cover"
+          src={LoginImg}
+          alt="Login"
+        />
+      </div>
     </div>
   );
 }

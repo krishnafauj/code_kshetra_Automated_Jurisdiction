@@ -3,10 +3,11 @@ import AutoIncrement from 'mongoose-sequence'; // Import plugin
 const BasicInfo = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }, // Fixed `string` type
+  role:{type:String,required:true},
 });
 const CaseInfo = new mongoose.Schema({
   email: { type: String, unique: true, required: true }, 
-  Fir_NO: { type: String, unique: true }, // Fixed `string` to `String`
+  Fir_NO: { type: Number, unique: true }, // Fixed `string` to `String`
 });
 
 CaseInfo.plugin(AutoIncrement(mongoose), { inc_field: 'Fir_NO' });

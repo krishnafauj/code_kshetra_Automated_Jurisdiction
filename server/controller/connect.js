@@ -1,20 +1,18 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const uri = "mongodb+srv://krishnafauj02:KNPb0xN5ZwTsdYdj@project1.rek9v.mongodb.net/?retryWrites=true&w=majority&appName=project1";
-const client = new MongoClient(uri, {serverApi: {
-  version: ServerApiVersion.v1,
-  strict: true,
-  deprecationErrors: true,
-}
-});
+dotenv.config(); // Load environment variables
 
-async function connectDB() {
-  console.log("inside mongo")
+async function connectDB(database) {
+ 
+  const uri = `mongodb+srv://krishnafauj02:KNPb0xN5ZwTsdYdj@project1.rek9v.mongodb.net/${database}?retryWrites=true&w=majority&appName=project1`;
+
   try {
-    await client.connect();
-    
+    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log("Connected to MongoDB database:", mongoose.connection.name);
   } catch (err) {
     console.error("Connection error:", err);
   }
 }
+
 export default connectDB;
