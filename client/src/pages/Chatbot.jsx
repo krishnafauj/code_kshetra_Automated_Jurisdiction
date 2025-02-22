@@ -25,7 +25,7 @@ const Chatbot = () => {
     }
   }, [messages, isOpen]);
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     e.preventDefault();
     const trimmedMessage = inputMessage.trim();
     if (!trimmedMessage) return;
@@ -36,17 +36,40 @@ const Chatbot = () => {
     setInputMessage('');
 
     setIsBotTyping(true);
-    setTimeout(() => {
+
+    try {
+      // Replace with your API endpoint
+      const response = await fetch('https://api.example.com/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: trimmedMessage }),
+      });
+
+      const data = await response.json();
+
       setMessages((prev) => [
         ...prev,
         {
           type: 'bot',
-          text: "I understand you need assistance. Could you please provide more specific details about your question? I'm here to help!",
+          text: data.response, // Assuming the API returns a response in this format
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);
+    } catch (error) {
+      console.error('Error fetching the API:', error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          type: 'bot',
+          text: "Sorry, I encountered an error while processing your request. Please try again later.",
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        }
+      ]);
+    } finally {
       setIsBotTyping(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -166,7 +189,7 @@ const Chatbot = () => {
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder="Type your message..."
                   aria-label="Type your message"
-                  className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                  className="flex-1 bg-gray-50 border text-black border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
                 />
                 <button
                   type="submit"
