@@ -6,6 +6,7 @@ const Magistratecases = () => {
   const [documentEntries, setDocumentEntries] = useState([
     { documentName: '', cid: '' }, // Initial empty entry
   ]);
+  const [extractedText, setExtractedText] = useState(''); // State for extracted text
 
   // Add a new document entry
   const addDocumentEntry = () => {
@@ -55,6 +56,42 @@ const Magistratecases = () => {
       alert('Failed to add document details.');
     }
   };
+
+  // Function to extract text from PDF and summarize it
+  const extractTextFromPdf = async (cid) => {
+    try {
+      const url = `https://gateway.pinata.cloud/ipfs/${cid}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Failed to fetch PDF");
+      const arrayBuffer = await response.arrayBuffer();
+
+      const pdfjsLib = await import("pdfjs-dist/build/pdf");
+      const pdfjsWorker = await import("pdfjs-dist/build/pdf.worker.mjs?url");
+
+      // Set worker source using the resolved URL
+      pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker.default;
+
+      const loadingTask = pdfjsLib.getDocument(new Uint8Array(arrayBuffer));
+      const pdf = await loadingTask.promise;
+
+      let extractedText = "";
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const textContent = await page.getTextContent();
+        extractedText += textContent.items.map(item => item.str).join(" ");
+      }
+      console.log(extractedText);
+      const summaryResponse = await axios.post('https://f010-35-201-2-169.ngrok-free.app/summarize_text', {
+        document_text: extractedText,
+      });
+      console.log(summaryResponse.data.summary);
+      setExtractedText(summaryResponse.data.summary);
+    } catch (error) {
+      console.error("Error parsing PDF or summarizing text:", error);
+      setExtractedText("Failed to extract or summarize text from PDF.");
+    }
+  };
+
   const email = localStorage.getItem('userEmail') || 'No Email Provided';
   const [cases, setCases] = useState([]);
   const [selectedCase, setSelectedCase] = useState(null);
@@ -244,12 +281,26 @@ const Magistratecases = () => {
                                   </a>
                                 }
                               />
+                              {/* Add Extract Text Button */}
+                              <button
+                                onClick={() => extractTextFromPdf(victim.cid)}
+                                className="mt-2 bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition-colors"
+                              >
+                                Summarize Text
+                              </button>
+                              {/* Display Extracted Text */}
+                              <textarea
+                                value={extractedText}
+                                rows="5"
+                                className="w-full mt-2 p-2 border text-black border-gray-300 rounded-lg"
+                                placeholder="Extracted text will appear here..."
+                                readOnly
+                              />
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
-
                   </div>
 
                   <div className="space-y-6">
@@ -276,7 +327,6 @@ const Magistratecases = () => {
                             <DetailItem icon={Phone} label="Mobile" value={culprit.mobile} />
                             <DetailItem icon={Calendar} label="Age" value={culprit.age} />
                             <DetailItem icon={Home} label="Address" value={culprit.address} />
-
                           </div>
                         </div>
                       ))}
@@ -286,16 +336,7 @@ const Magistratecases = () => {
                       {selectedCase.fir.map((fir, index) => (
                         <div key={index} className="mb-4 last:mb-0 border-b last:border-0 border-gray-200 pb-4 last:pb-0">
                           <div className="space-y-2">
-                            {/* FIR Number */}
-
-                            {/* FIR Date */}
                             <DetailItem icon={Calendar} label="CHARGES ADDED ON" value={new Date(fir.firDate).toLocaleDateString()} />
-
-
-
-                            {/* Police Station */}
-
-                            {/* FIR Entries */}
                             <div className="mt-4">
                               <h4 className="text-md font-medium text-gray-900 mb-2">IPC Entries</h4>
                               {fir.firEntries.map((entry, entryIndex) => (
@@ -343,7 +384,6 @@ const Magistratecases = () => {
 
                     {firEntries.map((fir, index) => (
                       <div key={index} className="space-y-4">
-                       
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">verdict Details</label>
                           <textarea
