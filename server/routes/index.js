@@ -12,13 +12,25 @@ import lawyersignup from '../controller/lawyer/lawyersignup.js';
 import authjwt from '../controller/auth/auth.js';
 import userfillingdata from '../controller/user/fillingdata.js';
 import datataker from '../controller/user/datataker.js';
+import datacasepolice from '../controller/police/datacasepolice.js';
+import addfir from '../controller/police/addifr.js';
+import adddocs from '../controller/police/adddocs.js';
 router
     .use(cors())
     .post('/signup', (req, res) => {
         usersignup(req, res);
     })
+    .post("/addfir",(req,res)=>{
+        addfir(req,res)
+    })
+    .post("/addocs",(req,res)=>{
+        adddocs(req,res)
+    })  
     .post("/getcases",(req,res)=>{
         datataker(req,res)
+    })
+    .post("/getpolicases", (req,res)=>{
+        datacasepolice(req,res)
     })
     .post('/login', (req, res) => { userVerify(req, res) })
     .post('/userdata', (req, res) => {
@@ -34,7 +46,7 @@ router
     .post('/magistrate/signup', (req, res) => {
         magistratesignup(req, res);
     })
-    .post('/magistrate/login',authjwt,(req, res) => {
+    .post('/magistrate/login',(req, res) => {
         magistratelogin(req, res);
     })
     .post('/advocate/signup', (req, res) => {

@@ -8,7 +8,6 @@ import {
 const PoliceSidebar = ({ isDarkMode }) => {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const location = useLocation();
-
   const navigationItems = [
     { name: 'Dashboard', icon: Home, path: '/' },
     { name: 'Search Cases', icon: Search, path: '/search' },
@@ -20,9 +19,8 @@ const PoliceSidebar = ({ isDarkMode }) => {
   ];
 
   const stakeholderItems = [
-    {name: 'User Portal', icon: Users, path: "/"},
-    { name: 'Police Portal', icon: Building2, path: '/police' },
-    { name: 'Magisterate Portal', icon: Building2, path: '/magisterate' },
+    {name: 'User Portal', icon: Users, path: "/userlogin"},
+    { name: 'Magisterate Portal', icon: Building2, path: '/magistratelogin' },
   ];
 
   const NavItem = ({ item }) => {

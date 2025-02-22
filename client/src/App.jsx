@@ -20,6 +20,8 @@ import AdvocateLogin from "./pages/AdvocatePage/AdvocateLogin";
 import CaseDetails from "./pages/CaseDetails";
 import CasesStatus from "./pages/casesStatus";
 import Policecases from "./pages/PolicePage/userpolice";
+import Magistratecases from "./pages/Magistrate/magistrateviewcases";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -35,6 +37,13 @@ function App() {
             <Layout>
               <Home />
             </Layout>
+          }
+        />
+        
+        <Route
+          path="/magistratecases"
+          element={
+              <Magistratecases />
           }
         />
         <Route

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import PoliceImg from "../../assets/policelogin.jpg";
-
+import { Link, useNavigate } from "react-router-dom";
 export default function MagistrateLogin() {
+  const navigate=useNavigate();
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
   const [error, setError] = useState("");
@@ -42,9 +43,11 @@ export default function MagistrateLogin() {
         role:"magistrate",
       });
       alert(data.message); // Handle success response
+      navigate("/magisterate"); // Navigate to the home page after successful login
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
       alert("Login/Signup failed. Please try again.");
+
     }
   };
 
