@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Navbar';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
+import Chatbot from '../pages/chatbot';
 
 import AdvocateSidebar from '../components/advocateSidebar';
 import MagisterateSidebar from '../components/MagisterateSidebar';
@@ -19,6 +20,7 @@ const Layout = ({ children, userRole }) => {
         </main>
         <Footer />
       </div>
+      <Chatbot />
     </div>
   );
 }
