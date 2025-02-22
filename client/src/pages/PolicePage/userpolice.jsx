@@ -248,6 +248,8 @@ const Policecases = () => {
                           </div>
                         ))}
                       </div>
+                      
+
                     </div>
 
                   </div>
@@ -281,6 +283,7 @@ const Policecases = () => {
                         </div>
                       ))}
                     </div>
+                 
                     <div className="bg-gray-50 rounded-xl p-4">
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">FIR Details</h3>
                       {selectedCase.fir.map((fir, index) => (
@@ -294,8 +297,7 @@ const Policecases = () => {
 
 
                             {/* Police Station */}
-
-                            {/* FIR Entries */}
+                          
                             <div className="mt-4">
                               <h4 className="text-md font-medium text-gray-900 mb-2">IPC Entries</h4>
                               {fir.firEntries.map((entry, entryIndex) => (
@@ -373,7 +375,7 @@ const Policecases = () => {
                     </button>
                   </div>
                 </div>
-
+               
                 {/* FIR Details Section */}
                 <div className="mt-6 bg-gray-50 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-4">
