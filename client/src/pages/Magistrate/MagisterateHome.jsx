@@ -56,7 +56,7 @@ function MagisterateHome() {
             </p>
 
             <div className="text-white flex flex-wrap justify-center gap-4">
-              <ActionButton icon={FileText} text="Register Client Case" to="/advocate-complaint" />
+              <ActionButton icon={FileText} text="View all Case" to="/magistratecases" />
               <ActionButton icon={Clock} text="View your Case Status" />
               <ActionButton icon={Search} text="Search all current Cases " />
             </div>
