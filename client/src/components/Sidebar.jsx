@@ -19,9 +19,9 @@ const Sidebar = ({ isDarkMode }) => {
   ];
 
   const stakeholderItems = [
-    { name: 'Police Portal', icon: Building2, path: '/police' },
-    { name: 'Advocate Portal', icon: Building2, path: '/advocate' },
-    { name: 'Magisterate Portal', icon: Users, path: '/magisterate' },
+    { name: 'Police Portal', icon: Building2, path: '/policelogin' },
+    { name: 'Advocate Portal', icon: Building2, path: '/advocatelogin' },
+    { name: 'Magisterate Portal', icon: Users, path: '/magistratelogin' },
   ];
 
   const NavItem = ({ item }) => {
@@ -42,7 +42,7 @@ const Sidebar = ({ isDarkMode }) => {
   };
 
   const handleLogout = () => {
-    console.log("Logging out..."); // Replace with actual logout logic
+    console.log("Logging out..."); 
   };
 
   return (

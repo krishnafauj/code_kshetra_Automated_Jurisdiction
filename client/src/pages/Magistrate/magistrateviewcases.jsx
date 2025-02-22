@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FileText, Calendar, MapPin, Clock, User, Phone, Mail, Home, Shield, AlertTriangle, X, ChevronRight, BadgeAlert, Plus } from 'lucide-react';
 
-const Policecases = () => {
+const Magistratecases = () => {
   const [documentEntries, setDocumentEntries] = useState([
     { documentName: '', cid: '' }, // Initial empty entry
   ]);
@@ -289,7 +289,7 @@ const Policecases = () => {
                             {/* FIR Number */}
 
                             {/* FIR Date */}
-                            <DetailItem icon={Calendar} label="Charges addition" value={new Date(fir.firDate).toLocaleDateString()} />
+                            <DetailItem icon={Calendar} label="CHARGES ADDED ON" value={new Date(fir.firDate).toLocaleDateString()} />
 
 
 
@@ -300,8 +300,8 @@ const Policecases = () => {
                               <h4 className="text-md font-medium text-gray-900 mb-2">IPC Entries</h4>
                               {fir.firEntries.map((entry, entryIndex) => (
                                 <div key={entryIndex} className="space-y-2">
-                                  <DetailItem icon={FileText} label="Entry IPC Number" value={entry.firNumber} />
-                                  <DetailItem icon={FileText} label="Entry IPC Details" value={entry.firDetails} />
+                                  <DetailItem icon={FileText} label=" IPC SECTION " value={entry.firNumber} />
+                                  <DetailItem icon={FileText} label=" IPC Details" value={entry.firDetails} />
                                 </div>
                               ))}
                             </div>
@@ -316,68 +316,11 @@ const Policecases = () => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Complaint Details</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{selectedCase.complaintDetails}</p>
                 </div>
-                <div className="mt-6 bg-gray-50 rounded-xl p-4">
-                  <div className="flex items-center justify-between mb-4">
-
-                    <h3 className="text-lg font-semibold text-gray-900">Add Document and CID Details</h3>
-                    <button
-                      onClick={addDocumentEntry}
-                      className="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-                    >
-                      <Plus className="w-5 h-5" />
-                    </button>
-                  </div>
-
-                  <div className="space-y-4">
-                    {/* Document and CID Entries */}
-                    {documentEntries.map((document, index) => (
-                      <div key={index} className="space-y-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Document Name</label>
-                          <input
-                            type="text"
-                            value={document.documentName}
-                            onChange={(e) => handleDocumentNameChange(index, e.target.value)}
-                            className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Enter document name"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">CID Number</label>
-                          <input
-                            type="text"
-                            value={document.cid}
-                            onChange={(e) => handleCidChange(index, e.target.value)}
-                            className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Enter CID number"
-                          />
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => removeDocumentEntry(index)}
-                          className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-1 px-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                        >
-                          Remove Document
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="mt-6">
-                    <button
-                      onClick={handleSubmit}
-                      className="w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    >
-                      Submit Document Details
-                    </button>
-                  </div>
-                </div>
 
                 {/* FIR Details Section */}
                 <div className="mt-6 bg-gray-50 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Add IPC Details</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Add verdict Details</h3>
                     <button
                       onClick={addFirEntry}
                       className="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
@@ -388,46 +331,27 @@ const Policecases = () => {
 
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Officer Name</label>
-                      <input
-                        type="text"
-                        value={officerName}
-                        onChange={(e) => setOfficerName(e.target.value)}
-                        className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                        placeholder="Enter officer name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Police Station</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Case Points</label>
                       <input
                         type="text"
                         value={policeStation}
                         onChange={(e) => setPoliceStation(e.target.value)}
                         className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                        placeholder="Enter police station"
+                        placeholder="Enter remarks "
                       />
                     </div>
 
                     {firEntries.map((fir, index) => (
                       <div key={index} className="space-y-4">
+                       
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">IPC Number</label>
-                          <input
-                            type="text"
-                            value={fir.firNumber}
-                            onChange={(e) => handleFirNumberChange(index, e.target.value)}
-                            className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Enter IPC number"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">IPC Details</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">verdict Details</label>
                           <textarea
                             value={fir.firDetails}
                             onChange={(e) => handleFirDetailsChange(index, e.target.value)}
                             className="w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             rows={3}
-                            placeholder="Enter IPC details"
+                            placeholder="Enter verdict details"
                           />
                         </div>
                       </div>
@@ -439,7 +363,7 @@ const Policecases = () => {
                     className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center space-x-2"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Add IPC</span>
+                    <span>Add verdict</span>
                   </button>
                 </div>
               </div>
@@ -470,4 +394,4 @@ const DetailItem = ({ icon: Icon, label, value }) => (
   </div>
 );
 
-export default Policecases;
+export default Magistratecases;

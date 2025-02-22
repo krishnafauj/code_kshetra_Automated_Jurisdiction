@@ -5,7 +5,7 @@ async function connectDB(database) {
  
   const uri = `mongodb+srv://krishnafauj02:KNPb0xN5ZwTsdYdj@project1.rek9v.mongodb.net/${database}?retryWrites=true&w=majority&appName=project1`;
   try {
-    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(uri);
     console.log("Connected to MongoDB database:", mongoose.connection.name);
 
   } catch (err) {

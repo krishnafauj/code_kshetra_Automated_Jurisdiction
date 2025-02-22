@@ -150,7 +150,34 @@ const CasesStatus = () => {
                         </div>
                       ))}
                     </div>
-
+                      <div className="bg-gray-50 rounded-xl p-4">
+                                            <h3 className="text-lg font-semibold text-gray-900 mb-4">FIR Details</h3>
+                                            {selectedCase.fir.map((fir, index) => (
+                                              <div key={index} className="mb-4 last:mb-0 border-b last:border-0 border-gray-200 pb-4 last:pb-0">
+                                                <div className="space-y-2">
+                                                  {/* FIR Number */}
+                      
+                                                  {/* FIR Date */}
+                                                  <DetailItem icon={Calendar} label="Charges addition" value={new Date(fir.firDate).toLocaleDateString()} />
+                      
+                      
+                      
+                                                  {/* Police Station */}
+                      
+                                                  {/* FIR Entries */}
+                                                  <div className="mt-4">
+                                                    <h4 className="text-md font-medium text-gray-900 mb-2">IPC Entries</h4>
+                                                    {fir.firEntries.map((entry, entryIndex) => (
+                                                      <div key={entryIndex} className="space-y-2">
+                                                        <DetailItem icon={FileText} label="Entry IPC Number" value={entry.firNumber} />
+                                                        <DetailItem icon={FileText} label="Entry IPC Details" value={entry.firDetails} />
+                                                      </div>
+                                                    ))}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            ))}
+                                          </div>
                     <div className="bg-gray-50 rounded-xl p-4">
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">Culprits</h3>
                       {selectedCase.culprits.map((culprit, index) => (
@@ -170,7 +197,28 @@ const CasesStatus = () => {
                 <div className="mt-6 bg-gray-50 rounded-xl p-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Complaint Details</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{selectedCase.complaintDetails}</p>
+                   <h3 className="text-lg mt-10 font-semibold text-gray-900 mb-4">Docs Details</h3>
+                                        <div className="bg-gray-50 rounded-xl p-4">
+                                          <h3 className="text-lg font-semibold text-gray-900 mb-4"></h3>
+                                          {selectedCase.documents.map((victim, index) => (
+                                            <div key={index} className="mb-4 last:mb-0 border-b last:border-0 border-gray-200 pb-4 last:pb-0">
+                                              <div className="space-y-2">
+                                                <DetailItem icon={FileText} label="Document name" value={victim.documentName} />
+                                                <DetailItem
+                                                  icon={Phone}
+                                                  label="Doc CID NO"
+                                                  value={
+                                                    <a href={`https://gateway.pinata.cloud/ipfs/${victim.cid}`} target="_blank" rel="noopener noreferrer">
+                                                      {victim.cid}
+                                                    </a>
+                                                  }
+                                                />
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
                 </div>
+                
               </div>
 
               <div className="border-t border-gray-100 p-6">

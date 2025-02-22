@@ -1,14 +1,28 @@
 import mongoose from 'mongoose';
+const firEntrySchema = new mongoose.Schema({
+  firNumber: { type: String,  }, // FIR number
+  firDetails: { type: String, } // FIR details
+});
+
+// Define the schema for FIR
+const firSchema = new mongoose.Schema({
+  firDate: { type: Date, default: Date.now }, // Date of FIR
+  firEntries: [firEntrySchema] // Array of FIR entry pairs
+});
+
+// D
 const BasicInfo = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }, // Fixed `string` type
   role:{type:String,required:true},
 });
+
 const culpritVictimSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
+  
   mobile: {
     type: String,
     required: true,
@@ -21,13 +35,22 @@ const culpritVictimSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fir: [firSchema], // Array of FIRs
 });
+
+
 
 const complaintSchema = new mongoose.Schema({
   additionalComments: {
     type: String,
     default: "",
   },
+  documents: [
+    {
+      documentName: { type: String },
+      cid: { type: String},
+    }
+  ],
   address: {
     type: String,
     default: "",
@@ -113,6 +136,8 @@ const complaintSchema = new mongoose.Schema({
     type: [culpritVictimSchema], // Array of objects
     default: [],
   },
+  caseId: { type: String, unique: true }, // Unique case ID
+  fir: [firSchema] // Array of FIRs
 }, { timestamps: true });
 
 // Create the model
