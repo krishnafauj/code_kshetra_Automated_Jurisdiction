@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import axios from "axios";
-import Layout from "./layouts/Layout"
+import Layout from "./layouts/layout";
 import Home from "./pages/Home";
 import AdvocateHome from "./pages/AdvocatePage/AdvocateHome";
 import PoliceHome from "./pages/PolicePage/PoliceHome";
@@ -22,6 +22,7 @@ import CasesStatus from "./pages/casesStatus";
 import Policecases from "./pages/PolicePage/userpolice";
 import Magistratecases from "./pages/Magistrate/magistrateviewcases";
 
+import PdfToText from "./pages/PdfToText";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -129,7 +130,9 @@ function App() {
           <Layout><AdvocateHome /></Layout>
             
         } />
-
+        <Route path = '/pdf-text' element={
+          <PdfToText/>
+        }/>
       </Routes>
 
     </Router>
